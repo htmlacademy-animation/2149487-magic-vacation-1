@@ -8,3 +8,42 @@
      opacity: 1;
    }
 }
+
+.onload {
+  &.onload-first {
+    transition: all 0.75s cubic-bezier(.38,.34,0,1.04);
+
+    &.page-header__logo {
+      opacity: 0;
+      transform: translateX(-3em);
+    }
+
+    &.page-header__nav {
+      opacity: 0;
+      transform: translateX(3em);
+    }
+
+    &.screen__footer {
+      opacity: 0;
+      transform: translateY(100%);
+    }
+
+    &.onload_active {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  &.onload-second {
+    &.social-block__toggler {
+      &::before {
+        transition: all 0.25s ease-in-out 0.35s;
+        transform: translate(-50%, -50%) scale(0);
+      }
+
+      &.onload_active::before {
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+  }
+}
