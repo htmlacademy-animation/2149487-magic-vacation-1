@@ -240,6 +240,7 @@
     position: relative;
     display: block;
     color: inherit;
+    overflow-x: hidden;
     padding: 0 0.5em 0.5em;
     transition: all 0.2s;
 
@@ -251,7 +252,7 @@
       width: 0;
       height: 2px;
       background-color: $c-light;
-      transition: all 0.25s ease-in-out 0.05s;
+      transition: opacity, width 0.25s ease-in-out .05s, transform 0.25s ease-in-out .35s;
       opacity: 0;
 
       @media (max-width: $tablet) and (orientation: portrait) {

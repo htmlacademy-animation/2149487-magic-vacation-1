@@ -24,17 +24,5 @@ export default () => {
 
   window.addEventListener(`load`, () => {
     document.body.classList.add(`loaded`);
-
-    task2();
   });
-
-  function task2() {
-    if (document.body.classList.contains(`loaded`)) {
-      document.querySelectorAll(`.onload`).forEach((item) => {
-        item.classList.add(`onload_active`);
-      });
-    }
-
-    task1();
-  }
 };
