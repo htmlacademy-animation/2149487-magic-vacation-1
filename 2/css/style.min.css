@@ -1002,41 +1002,44 @@ img {
   overflow: hidden;
 }
 
-.fadein {
-  transition: all 1s;
-  transform: translateY(3em);
-  opacity: 0;
-}
-.fadein.fadein-active {
-  transform: translateY(0);
-  opacity: 1;
-}
-
-.onload.onload-first {
-  transition: all 0.75s cubic-bezier(0.38, 0.34, 0, 1.04);
-}
-.onload.onload-first.page-header__logo {
+.page-header__logo {
+  transition: opacity, transform 0.75s cubic-bezier(0.38, 0.34, 0, 1.04);
   opacity: 0;
   transform: translateX(-3em);
 }
-.onload.onload-first.page-header__nav {
+
+.page-header__nav {
+  transition: opacity, transform 0.75s cubic-bezier(0.38, 0.34, 0, 1.04);
   opacity: 0;
   transform: translateX(3em);
 }
-.onload.onload-first.screen__footer {
+
+.screen__footer {
+  transition: opacity, transform 0.75s cubic-bezier(0.38, 0.34, 0, 1.04);
   opacity: 0;
   transform: translateY(100%);
 }
-.onload.onload-first.onload_active {
+
+.social-block__toggler::before {
+  transition: opacity, transform 0.25s ease-in-out 0.35s;
+  opacity: 0 !important;
+  transform: translate(-50%, -50%) scale(0) !important;
+}
+
+.page-header__menu a::after {
+  transform: translateX(-100%);
+}
+
+body.loaded .page-header__logo, body.loaded .page-header__nav, body.loaded .screen__footer {
   opacity: 1;
   transform: none;
 }
-.onload.onload-second.social-block__toggler::before {
-  transition: all 0.25s ease-in-out 0.35s;
-  transform: translate(-50%, -50%) scale(0);
+body.loaded .social-block__toggler::before {
+  opacity: 1 !important;
+  transform: translate(-50%, -50%) scale(1) !important;
 }
-.onload.onload-second.social-block__toggler.onload_active::before {
-  transform: translate(-50%, -50%) scale(1);
+body.loaded .page-header__menu a::after {
+  transform: none;
 }
 
 .animation-screen {
@@ -2212,6 +2215,7 @@ img {
   position: relative;
   display: block;
   color: inherit;
+  overflow-x: hidden;
   padding: 0 0.5em 0.5em;
   transition: all 0.2s;
 }
@@ -2223,7 +2227,7 @@ img {
   width: 0;
   height: 2px;
   background-color: #ffffff;
-  transition: all 0.25s ease-in-out 0.05s;
+  transition: opacity, width 0.25s ease-in-out 0.05s, transform 0.25s ease-in-out 0.35s;
   opacity: 0;
 }
 @media (max-width: 1024px) and (orientation: portrait) {
