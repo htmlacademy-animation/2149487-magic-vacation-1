@@ -240,20 +240,20 @@
     position: relative;
     display: block;
     color: inherit;
-    padding: 0 0.5em 0.5em;
     overflow-x: hidden;
+    padding: 0 0.5em 0.5em;
     transition: all 0.2s;
 
     &::after {
       content: "";
       position: absolute;
+      left: 0;
       bottom: 0;
-      width: 100%;
+      width: 0;
       height: 2px;
       background-color: $c-light;
-      transition: all 0.2s;
+      transition: opacity, width 0.25s ease-in-out .05s, transform 0.25s ease-in-out .35s;
       opacity: 0;
-      left: -75%;
 
       @media (max-width: $tablet) and (orientation: portrait) {
         left: 0;
@@ -268,10 +268,10 @@
       }
     }
 
-    &.active, &:hover{
+    &.active, &:hover {
       &::after {
         opacity: 1;
-        left: 0;
+        width: 100%;
       }
     }
 
