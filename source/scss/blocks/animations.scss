@@ -12,15 +12,14 @@
 //
 
 .page-header__logo {
-  transition: opacity, transform 0.75s cubic-bezier(.38, .34, 0, 1.04);
+  transition: all 0.75s cubic-bezier(.38, .34, 0, 1.04);
   opacity: 0;
-  transform: translateX(-3em);
+  transform: translateX(-1.5em);
 }
 
 .page-header__nav {
-  transition: opacity, transform 0.75s cubic-bezier(.38, .34, 0, 1.04);
+  transition: all 0.75s cubic-bezier(.38, .34, 0, 1.04);
   opacity: 0;
-  transform: translateX(3em);
 }
 
 .screen__footer {
@@ -30,7 +29,7 @@
 }
 
 .social-block__toggler::before {
-    transition: opacity, transform 0.25s ease-in-out 0.35s;
+    transition: opacity, transform 0.25s ease-in-out 0.25s;
     opacity: 0 !important;
     transform: translate(-50%, -50%) scale(0) !important;
 }
