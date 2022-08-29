@@ -71,6 +71,8 @@
 }
 
 .screen__footer-wrapper {
+  position: relative;
+  z-index: 6;
   @include container;
 
   @media (max-width: $tablet) and (orientation: portrait) {
