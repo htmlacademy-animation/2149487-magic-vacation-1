@@ -4,10 +4,10 @@
   transform: translateX(-1.5em);
 }
 
-.page-header__nav {
-  transition: all 0.75s cubic-bezier(.38, .34, 0, 1.04);
-  opacity: 0;
-}
+//.page-header__nav {
+//  transition: all 0.75s cubic-bezier(.38, .34, 0, 1.04);
+//  opacity: 0;
+//}
 
 .screen__footer {
   transition: opacity, transform 0.75s cubic-bezier(.38, .34, 0, 1.04);
@@ -26,7 +26,7 @@
 }
 
 body.loaded {
-  .page-header__logo, .page-header__nav, .screen__footer{
+  .page-header__logo, .screen__footer{
     opacity: 1;
     transform: none;
   }
@@ -42,7 +42,7 @@ body.loaded {
 }
 
 
-// task 4
+// module 1 task 4
 
 .fill-block {
   position: fixed;
@@ -60,5 +60,98 @@ body.loaded {
     transition-property: top, opacity, visibility;
     transition-duration: 0.5s, 0.2s, 0s;
     transition-delay: 0s, 0.65s, 0.85s;
+  }
+}
+
+// module 2 task 1
+.screen--rules.active {
+  .rules__item {
+    &::before {
+      animation: bullets 0.75s cubic-bezier(.69,.31,.36,1.7) normal both;
+    }
+
+    p {
+      animation: textAnimation 0.75s;
+    }
+
+    @for $i from 1 through 4 {
+      &:nth-child(#{$i}) {
+        &::before, p {
+          animation-delay: 100ms * $i;
+        }
+      }
+    }
+  }
+
+  .rules__link.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: goButton768px 0.35s ease 1s normal both;
+
+    p {
+      animation: goButtonText 0.3s ease 1.35s normal backwards;
+    }
+
+    @media (min-width: 768px) {
+      padding: 0;
+      height: 44px;
+      animation: goButton1920px 0.35s ease 1s normal both;
+
+      p {
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
+
+@keyframes bullets {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes textAnimation {
+  0% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes goButton1920px {
+  0% {
+    width: 44px;
+  }
+  100% {
+    width: 130px;
+  }
+}
+
+@keyframes goButton768px {
+  0% {
+    width: 44px;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes goButtonText {
+  0% {
+    visibility: hidden;
+    opacity: 0;
+  }
+  100% {
+    visibility: visible;
+    opacity: 1;
   }
 }
