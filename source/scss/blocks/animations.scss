@@ -155,3 +155,205 @@ body.loaded {
     opacity: 1;
   }
 }
+
+
+// module 2 task 2
+.letters-animation {
+  display: flex;
+  flex-wrap: wrap;
+
+  &--string {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 7px;
+  }
+
+  &--word {
+    display: flex;
+    line-height: 1.25;
+    overflow: hidden;
+  }
+
+  &--letter {
+    will-change: transition;
+    animation: lettersAnimation both;
+  }
+
+
+  @for $count from 1 through 10 {
+    &--string:nth-child(#{$count}) {
+      @for $count2 from 1 through 10 {
+        .letters-animation--letter {
+          &.delay-#{$count2 * 35}ms {
+            animation-delay: ($count * 350ms) + ($count2 * 35ms);
+          }
+
+          &.duration-#{$count2 * 100}ms {
+            animation-duration: $count2 * 100ms;
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes lettersAnimation {
+  from {
+    transform: translate3d(0, 100%, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+// part 2
+
+.result {
+  .rezult__flamingo {
+    will-change: transform, opacity;
+    animation: flamingoAnimation 0.7s 0.001s both;
+  }
+
+  .rezult__flamingo-container {
+    will-change: transform, opacity;
+    animation: flamingoAnimationLoop 1.5s ease-in-out 0.71s infinite both alternate;
+  }
+
+  .rezult__suitcase {
+    will-change: transform, opacity;
+    animation: suitcaseAnimation 0.75s both;
+  }
+
+  .rezult__leaf-blue-1 {
+    will-change: transform, opacity;
+    animation: leaf1Animation 1.5s ease-out 0.7s both;
+    transform-origin: left center;
+  }
+
+  .rezult__leaf-blue-2 {
+    will-change: transform, opacity;
+    animation: leaf2Animation 1.25s ease-out 0.725s both;
+    transform-origin: right center;
+  }
+
+  .rezult__leaf-green {
+    will-change: transform, opacity;
+    animation: leaf1Animation 1.55s ease-out 0.725s both;
+    transform-origin: left center;
+  }
+}
+
+@keyframes flamingoAnimation {
+  from {
+    transform: translate3d(0, 110%, 0) rotate(-50deg);
+    transform-origin: left;
+    opacity: 0;
+  }
+  to {
+    transform: translate3d(0, 0, 0) rotate(0);
+    opacity: 1;
+  }
+}
+
+@keyframes flamingoAnimationLoop {
+  from {
+    transform: rotate(10deg);
+    transform-origin: right;
+  }
+  to {
+    transform: rotate(0);
+  }
+}
+
+@keyframes suitcaseAnimation {
+  from {
+    transform: translate3d(0, 100%, 0);
+    opacity: 0;
+  }
+  70% {
+    transform: translate3d(0, -10%, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes leaf1Animation {
+  from {
+    transform: rotate(-15deg);
+    opacity: 0;
+  }
+  25% {
+    transform: rotate(12.5deg);
+  }
+  50% {
+    transform: rotate(-9.5deg);
+  }
+  75% {
+    transform: rotate(5deg);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes leaf2Animation {
+  from {
+    transform: rotate(15deg);
+    opacity: 0;
+  }
+  25% {
+    transform: rotate(-12.5deg);
+  }
+  50% {
+    transform: rotate(9.5deg);
+  }
+  75% {
+    transform: rotate(-5deg);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+}
+
+.screen--result {
+  input#email-field2 {
+    will-change: width, opacity;
+    animation: emailField2Animation 0.5s 1.35s both;
+  }
+
+  .form__button {
+    will-change: opacity;
+    animation: formButtonAnimation 0.35s 1s both;
+
+    span {
+      will-change: opacity;
+      animation: formButtonAnimation 0.15s 1.3s both;
+    }
+  }
+}
+
+@keyframes emailField2Animation {
+  0% {
+    width: 56px;
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  100% {
+    width: 100%;
+  }
+}
+@keyframes formButtonAnimation {
+  0% {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
