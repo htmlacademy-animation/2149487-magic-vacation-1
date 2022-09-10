@@ -251,20 +251,20 @@
       bottom: 0;
       width: 0;
       height: 2px;
-      background-color: $c-light;
+      background-color: currentColor;
       transition: opacity, width 0.25s ease-in-out .05s, transform 0.25s ease-in-out .35s;
       opacity: 0;
 
       @media (max-width: $tablet) and (orientation: portrait) {
         left: 0;
         right: 0;
-        background-color: $c-dark;
+        //background-color: $c-dark;
       }
 
       @media (max-width: $mobile) and (orientation: landscape) {
         left: 0;
         right: 0;
-        background-color: $c-dark;
+        //background-color: $c-dark;
       }
     }
 
@@ -282,7 +282,7 @@
 
       &::after {
         opacity: 1;
-        background-color: $c-purple;
+        //background-color: $c-purple;
       }
     }
   }

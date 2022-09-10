@@ -46,8 +46,6 @@
 
   &:hover,
   .social-block--active & {
-    color: $c-purple;
-
     &::before {
       width: 112.5%;
       height: 112.5%;
@@ -55,12 +53,7 @@
   }
 
   &:focus {
-    color: $c-purple;
     outline: none;
-
-    &::before {
-      border-color: $c-purple;
-    }
 
     & + .social-block__list, & + .social-block__list > li {
       opacity: 1;
