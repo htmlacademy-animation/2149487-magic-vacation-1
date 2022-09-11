@@ -8,10 +8,21 @@ export default class FullPageScroll {
 
     this.screenElements = document.querySelectorAll(`.screen:not(.screen--result)`);
     this.menuElements = document.querySelectorAll(`.page-header__menu .js-menu-link`);
+    this.body = document.querySelector(`body`);
 
     this.activeScreen = 0;
     this.onScrollHandler = this.onScroll.bind(this);
     this.onUrlHashChengedHandler = this.onUrlHashChanged.bind(this);
+    this.prevClass = undefined;
+  }
+
+  setBodyClasslist(classname) {
+    if (this.prevClass) {
+      this.body.classList.remove(this.prevClass);
+    }
+
+    this.body.classList.add(classname);
+    this.prevClass = classname;
   }
 
   init() {
@@ -52,7 +63,6 @@ export default class FullPageScroll {
   }
 
   changeVisibilityDisplay() {
-
     if (this.screenElements[this.activeScreen].classList.contains(`screen--prizes`)) {
       document.querySelector(`.fill-block`).classList.add(`active`);
 
@@ -78,6 +88,12 @@ export default class FullPageScroll {
       setTimeout(() => {
         this.screenElements[this.activeScreen].classList.add(`active`);
       }, 100);
+    }
+
+    if (this.screenElements[this.activeScreen].classList.contains(`screen--story`)) {
+      this.setBodyClasslist(`story-theme--pink`);
+    } else {
+      this.setBodyClasslist(``);
     }
   }
 

@@ -9,11 +9,11 @@
 //  opacity: 0;
 //}
 
-.screen__footer {
-  transition: opacity, transform 0.75s cubic-bezier(.38, .34, 0, 1.04);
-  opacity: 0;
-  transform: translateY(100%);
-}
+//.screen__footer {
+//  transition: opacity, transform 0.75s cubic-bezier(.38, .34, 0, 1.04);
+//  opacity: 0;
+//  transform: translateY(100%);
+//}
 
 .social-block__toggler::before {
     transition: opacity, transform 0.25s ease-in-out 0.25s;
@@ -26,7 +26,7 @@
 }
 
 body.loaded {
-  .page-header__logo, .screen__footer{
+  .page-header__logo {
     opacity: 1;
     transform: none;
   }
@@ -49,7 +49,7 @@ body.loaded {
   height: 100%;
   width: 100%;
   z-index: 5;
-  background: #5f458c;
+  background: $c-dark;
   left: 0;
   top: 100%;
   visibility: visible;
@@ -327,11 +327,11 @@ body.loaded {
 
   .form__button {
     will-change: opacity;
-    animation: formButtonAnimation 0.35s 1s both;
+    animation: opacityAnimation 0.35s 1s both;
 
     span {
       will-change: opacity;
-      animation: formButtonAnimation 0.15s 1.3s both;
+      animation: opacityAnimation 0.15s 1.3s both;
     }
   }
 }
@@ -348,12 +348,238 @@ body.loaded {
     width: 100%;
   }
 }
-@keyframes formButtonAnimation {
+@keyframes opacityAnimation {
   0% {
     opacity: 0;
   }
 
   to {
     opacity: 1;
+  }
+}
+
+// module 2 task 3
+
+// 3.6 slider buttons
+.slider__controls {
+  .slider__control--prev {
+    will-change: transform, opacity;
+    animation: sliderButtonPrev 0.5s both;
+  }
+
+  .slider__control--next {
+    will-change: transform, opacity;
+    animation: sliderButtonNext 0.5s both;
+  }
+}
+
+@keyframes sliderButtonPrev {
+  from {
+    transform: translate3d(-275%, 0, 0) rotate(-360deg);
+    opacity: 0;
+  }
+  to {
+    transform: translate3d(0, 0, 0) rotate(360deg);
+    opacity: 1;
+  }
+}
+
+@keyframes sliderButtonNext {
+  from {
+    transform: translate3d(275%, 0, 0) rotate(360deg);
+    opacity: 0;
+  }
+  to {
+    transform: translate3d(0, 0, 0) rotate(-360deg);
+    opacity: 1;
+  }
+}
+
+
+// 3.9
+
+.result__button {
+  &-text {
+    animation: opacityAnimation 0.75s both;
+    will-change: opacity;
+  }
+
+  &-icon {
+    will-change: transform, opacity;
+    animation: sliderButtonNext 0.5s both;
+  }
+}
+
+
+// 3.10
+
+.screen__footer {
+  animation: footerAnimation 0.5s both;
+}
+
+//.screen__footer-note, .screen__disclaimer {
+//  transition: opacity 0.5s;
+//}
+
+.screen--rules {
+  &.active .disclaimer ul {
+    opacity: 1;
+  }
+
+  .disclaimer ul {
+    opacity: 0;
+    transition: opacity 0.55s;
+  }
+}
+
+.screen--prizes {
+  &.active .screen__footer-note {
+    opacity: 1;
+  }
+
+  .screen__footer-note {
+    opacity: 0;
+    transition: opacity 0.75s;
+  }
+}
+
+@keyframes footerAnimation {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.screen__footer {
+  transition: width 0.5s, height 0.5s;
+
+  &.active {
+    .screen__footer-wrapper {
+      transition: opacity 0.5s 0.5s;
+    }
+  }
+
+  .js-footer-toggler {
+    z-index: 10;
+  }
+}
+
+// 4.10
+
+.story-theme--pink {
+  .page-header__menu a {
+    &:hover {
+      color: $c-dark;
+    }
+  }
+
+  .social-block {
+    .social-block__toggler {
+      color: $c-dark;
+
+      &:focus {
+        &::before {
+          border-color: $c-dark;
+        }
+      }
+    }
+
+    &--active .social-block__toggler {
+      background-color: $c-dark;
+      color: white;
+
+      &::before {
+        border-color: $c-dark;
+      }
+    }
+  }
+}
+
+.story-theme--blue {
+  .page-header__menu a {
+    &:hover {
+      color: #a0ceff;
+    }
+  }
+
+  .social-block {
+    .social-block__toggler {
+      color: #a0ceff;
+
+      &:focus {
+        &::before {
+          border-color: #a0ceff;
+        }
+      }
+    }
+
+    &--active .social-block__toggler {
+      background-color: #a0ceff;
+      color: white;
+
+      &::before {
+        border-color: #a0ceff;
+      }
+    }
+  }
+}
+
+.story-theme--light {
+  .page-header__menu a {
+    &:hover {
+      color: #3e72ee;
+    }
+  }
+
+  .social-block {
+    .social-block__toggler {
+      color: #3e72ee;
+
+      &:focus {
+        &::before {
+          border-color: #3e72ee;
+        }
+      }
+    }
+
+    &--active .social-block__toggler {
+      background-color: #3e72ee;
+      color: white;
+
+      &::before {
+        border-color: #3e72ee;
+      }
+    }
+  }
+}
+
+.story-theme--violet {
+  .page-header__menu a {
+    &:hover {
+      color: $c-purple;
+    }
+  }
+
+  .social-block {
+    .social-block__toggler {
+      color: $c-dark;
+
+      &:focus {
+        &::before {
+          border-color: $c-purple;
+        }
+      }
+    }
+
+    &--active .social-block__toggler {
+      background-color: $c-purple;
+      color: white;
+
+      &::before {
+        border-color: $c-purple;
+      }
+    }
   }
 }

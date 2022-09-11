@@ -4,7 +4,7 @@ export default () => {
     if ((window.innerWidth / window.innerHeight < 1) || (window.innerWidth < 769)) {
       el.placeholder = `e-mail`;
     } else {
-      el.placeholder = `e-mail для регистации результата и получения приза`;
+      el.placeholder = `e-mail для регистрации результата и получения приза`;
     }
   };
   for (let i = 0; i < emailFields.length; i++) {

@@ -58,3 +58,23 @@ export default () => {
     lettersTextAnimation(item);
   });
 };
+
+
+// module 2 task 3
+
+// 3.10
+
+const footerTogglers = [...document.querySelectorAll(`.screen__footer .js-footer-toggler`)];
+const screenFooter = [...document.querySelectorAll(`.screen__footer`)];
+const screenFooterToggle = () => {
+  screenFooter.forEach((footer) => {
+    footer.classList.toggle(`active`);
+  });
+};
+
+footerTogglers.forEach((item) => {
+  item.addEventListener(`click`, () => {
+    screenFooterToggle();
+  });
+});
+
